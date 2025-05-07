@@ -6,8 +6,7 @@ import Button from "./shared/Button.astro";
   <!-- Load dotlottie-player only once -->
   <script
     src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-    type="module"
-  ></script>
+    type="module"></script>
 
   <!-- Background Lottie layers -->
   <dotlottie-player
@@ -16,8 +15,7 @@ import Button from "./shared/Button.astro";
     speed="1"
     style="position: absolute; bottom: 0; height: 100vh; z-index: 0;"
     loop
-    autoplay
-  ></dotlottie-player>
+    autoplay></dotlottie-player>
 
   <dotlottie-player
     src="https://lottie.host/e68f35be-7a8d-4682-ab46-46d4812f87ed/CucyMkCQjB.lottie"
@@ -25,12 +23,11 @@ import Button from "./shared/Button.astro";
     speed="1"
     style="position: absolute; bottom: 0; height: 60vh; z-index: 2;"
     loop
-    autoplay
-  ></dotlottie-player>
+    autoplay></dotlottie-player>
 
   <!-- Hero content -->
   <div class="hero-content">
-    <h1>Engineered for speed, managed for you</h1>
+    <h1>Engineered for speed, <br /> managed for you</h1>
     <p>Fully-managed real-time database for Amazon and Google clouds</p>
   </div>
 
@@ -38,32 +35,43 @@ import Button from "./shared/Button.astro";
 </section>
 
 <style>
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 120px;
-  text-align: center;
-  overflow: hidden;
-  background: linear-gradient(to bottom, var(--color-black), var(--color-secondary));
-}
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(
+      to bottom,
+      var(--color-black),
+      var(--color-secondary)
+    );
+  }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 625px;
-  margin: 0 auto 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: center;
-  color: var(--color-white);
-  line-height: 1;
-}
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 625px;
+    margin: 0 auto 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    color: var(--color-white);
+    line-height: 1;
+  }
 
-.hero p {
-  color: var(--color-subtle-text);
-}
+  .hero p {
+    color: var(--color-subtle-text);
+  }
+
+  @media (max-width: 560px) {
+    .hero p {
+      color: var(--color-subtle-text);
+      max-width: 292px;
+    }
+  }
 </style>
