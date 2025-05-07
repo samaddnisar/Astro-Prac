@@ -1,0 +1,53 @@
+---
+/**
+ * A reusable button component with visual variants.
+ *
+ * @prop {string} variant - Visual style ("primary" | "secondary" | "outline")
+ * @prop {string} className - Optional additional class names
+ */
+
+const { variant = "primary", className = "" } = Astro.props;
+const classes = `button ${variant} ${className}`;
+---
+
+<button class={classes}>
+  <slot />
+</button>
+
+<style>
+  .button {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-black);
+  }
+
+  .button:hover {
+    transform: scale(1.04);
+  }
+
+  /* === Variants === */
+
+  .primary {
+    background-color: var(--color-primary);
+  }
+
+  .secondary {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+  }
+
+  .outline {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+  }
+</style>

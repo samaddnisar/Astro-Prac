@@ -1,0 +1,65 @@
+---
+const navLinks = [
+  { name: "Products", href: "/" },
+  { name: "Solutions", href: "/about" },
+  { name: "Ressources", href: "/services" },
+  { name: "Company", href: "/contact" },
+];
+---
+
+<nav>
+  <div>
+    <img src="/images/logo.png" alt="Logo" />
+  </div>
+
+  <ul>
+    {
+      navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="nav-link">
+            {link.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="nav-actions">
+    <a href="/contact" class="nav-link">Contact</a>
+    <a href="/signup" class="nav-link">Login</a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 11px 2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  ul {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-link {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .nav-actions {
+    display: flex;
+    gap: 30px;
+  }
+</style>
