@@ -16,7 +16,7 @@ const navLinks = [
     {
       navLinks.map((link) => (
         <li>
-          <a href={link.href} class="nav-link">
+          <a href={link.href} class="nav-link"> 
             {link.name}
           </a>
         </li>
@@ -36,12 +36,13 @@ const navLinks = [
     top: 0;
     z-index: 1;
     width: 100%;
-    background-color: var(--color-black);
+max-width: 1400px;
     padding: 11px 2vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
+transform: translateX(-50%);
+left: 50%
   }
 
   ul {
