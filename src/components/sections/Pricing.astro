@@ -1,1 +1,231 @@
-<section></section>
+---
+import SectionName from "../shared/SectionName.astro";
+import SectionHeading from "../shared/SectionHeading.astro";
+import PricingCard from "../sections-specific/pricing/PricingCard.astro";
+
+const databaseFeatures = [
+  {
+    label: "Topology",
+    value: "Replication-factor 3 cluster in two availability zones",
+  },
+  { label: "Useable record storage", value: "10 TB" },
+  { label: "AWS Instances", value: "12 × i5i.xlarge" },
+  { label: "GCP instances", value: "12 × n3-large" },
+  { label: "Estimated network costs", value: "$10 – 100 /mo" },
+];
+---
+
+<section>
+  <div class="texts">
+    <SectionName>PRICING</SectionName>
+    <SectionHeading
+      >Transparent pricing that doesn't tax your growth</SectionHeading
+    >
+  </div>
+  <div class="top-content">
+    <div class="left-content">
+      <h2>How pricing works</h2>
+      <div class="points">
+        <div class="point">
+          <div class="color-box-and-heading">
+            <span class="color-box"></span>
+            <h6 class="point-heading">Compute Instancees</h6>
+          </div>
+          <p>The compute and storage capacity you provision.</p>
+        </div>
+        <div class="point">
+          <div class="color-box-and-heading">
+            <span class="color-box"></span>
+            <h6 class="point-heading">Cloud Management</h6>
+          </div>
+          <p>The compute and storage capacity you provision.</p>
+        </div>
+        <div class="point">
+          <div class="color-box-and-heading">
+            <span class="color-box"></span>
+            <h6 class="point-heading">Database Licence</h6>
+          </div>
+          <p>The compute and storage capacity you provision.</p>
+        </div>
+        <div class="point">
+          <div class="color-box-and-heading">
+            <span class="color-box"></span>
+            <h6 class="point-heading">Network transfer</h6>
+          </div>
+          <p>The compute and storage capacity you provision.</p>
+        </div>
+      </div>
+    </div>
+    <div class="right-content">
+      <div class="image">
+        <img src="/images/how-pricing-works.png" alt="How pricing works" />
+      </div>
+    </div>
+  </div>
+  <div class="bottom-content">
+    <div class="texts">
+      <SectionHeading>Pricing Examples</SectionHeading>
+      <p class="sub-heading">
+        Access to the Aerospike Cloud preview includes aa free sizing and
+        pricing eestimate based on your workload.
+      </p>
+    </div>
+    <div class="cards">
+      <PricingCard
+        planName="Database"
+        size="Small / Medium"
+        price="$0"
+        unit="/ hour"
+        estimated="Estimated $0 / mo"
+        description="Suitable for a high total storage application with six-figure reads/writes per second."
+        features={databaseFeatures}
+      />
+      <PricingCard
+        planName="Cache"
+        size="Small / Medium"
+        price="$0"
+        unit="/ hour"
+        estimated="Estimated $0 / mo"
+        description="Suitable for a high total storage application with six-figure reads/writes per second."
+        features={databaseFeatures}
+      />
+      <PricingCard
+        planName="Hybrid"
+        size="Small / Medium"
+        price="$0"
+        unit="/ hour"
+        estimated="Estimated $0 / mo"
+        description="Suitable for a high total storage application with six-figure reads/writes per second."
+        features={databaseFeatures}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 60px 0;
+  }
+
+  .bottom-content {
+    margin-top: 80px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .point p {
+    color: var(--color-muted);
+  }
+  .sub-heading {
+    font-size: 18px;
+    color: var(--color-muted);
+    font-weight: 400;
+  }
+  .points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    color: var(--color-muted-foreground);
+    margin-top: 30px;
+  }
+  .point {
+    display: flex;
+    gap: 20px;
+
+    flex-direction: column;
+  }
+  .image img {
+    width: 100%;
+  }
+  .image {
+    width: 100%;
+  }
+  .color-box {
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+
+  .color-box-and-heading {
+    display: flex;
+    align-items: center;
+  }
+  h6 {
+    color: var(--color-white);
+    font-size: 16px;
+    font-weight: 500;
+  }
+  h2 {
+    color: var(--color-white);
+    font-size: 32px;
+    font-weight: 500;
+  }
+  p {
+    font-size: 14px;
+  }
+  .top-content {
+    background: linear-gradient(
+      to bottom,
+      var(--color-secondary),
+      var(--color-black)
+    );
+    border-radius: 20px;
+    width: 100%;
+    height: 570px;
+    margin-top: 80px;
+    padding: 80px 50px;
+    display: flex;
+    gap: 64px;
+    align-items: center;
+  }
+  .texts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  @media (max-width: 1024px) {
+    section {
+      padding: 30px 0;
+    }
+
+    .cards {
+      grid-template-columns: 1fr;
+    }
+    .top-content {
+      flex-direction: column-reverse;
+      gap: 20px;
+      padding: 40px 20px;
+      align-items: start;
+      height: auto;
+      margin-top: 20px;
+    }
+    .points {
+      grid-template-columns: 1fr;
+    }
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+    .right-content {
+      width: 100%;
+    }
+    h2 {
+      color: var(--color-white);
+      font-size: 24px;
+      font-weight: 500;
+    }
+    .point-heading {
+      font-size: 14px;
+    }
+    .point {
+      gap: 10px;
+    }
+  }
+</style>

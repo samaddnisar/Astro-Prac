@@ -1,0 +1,110 @@
+---
+const {
+  planName,
+  size,
+  price,
+  unit = "/ hour",
+  estimated,
+  description,
+  features = [],
+} = Astro.props;
+---
+
+<div class="pricing-card">
+  <div class="card-header">
+    <h2 class="plan-name">{planName}</h2>
+    <div class="size-label">{size}</div>
+  </div>
+
+  <div class="card-body">
+    <div class="price">
+      <span class="amount">{price}</span>
+      <span class="unit">{unit}</span>
+    </div>
+    {estimated && <div class="estimated">{estimated}</div>}
+    {description && <p class="description">{description}</p>}
+  </div>
+
+  <ul class="feature-list">
+    {
+      features.map((f) => (
+        <li class="feature">
+          <dt>{f.label}</dt>
+          <dd>{f.value}</dd>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .pricing-card {
+    background-color: var(--color-accent);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    color: var(--color-foreground);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .plan-name {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .size-label {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    text-transform: uppercase;
+  }
+
+  .card-body {
+    margin-top: 1rem;
+  }
+
+  .price {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .estimated {
+    margin-top: 9px;
+    font-size: 20px
+    color: var(--color-muted-foreground);
+  }
+
+  .description {
+margin-top: 28px;
+margin-bottom: 20px;
+    font-size: 1rem;
+    color: var(--color-muted-foreground);
+    line-height: 1.4;
+  }
+
+  .feature-list {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.feature  {
+    border-top: 1px solid var(--color-muted-foreground);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 0.875rem;
+    color: var(--color-muted-foreground);
+  }
+
+  
+</style>
