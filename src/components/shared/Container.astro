@@ -1,0 +1,25 @@
+---
+/**
+ * A flexible container component that supports dynamic HTML elements.
+ *
+ * @prop {string} [as='section'] - The HTML tag to render.
+ * @prop {string} [class] - Optional additional class name(s).
+ */
+
+const { as = "section" } = Astro.props;
+const Tag = as;
+---
+
+<Tag class="container">
+  <slot />
+</Tag>
+
+<style>
+  .container {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+</style>

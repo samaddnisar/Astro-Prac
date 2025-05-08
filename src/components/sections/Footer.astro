@@ -1,0 +1,302 @@
+---
+import Button from "../shared/Button.astro";
+import Container from "../shared/Container.astro";
+
+const socialLinks = [
+  { logoPath: "/images/Discord.png", href: "/", name: "Discord" },
+  { logoPath: "/images/Github.png", href: "/", name: "Github" },
+  { logoPath: "/images/StackOverflow.png", href: "/", name: "StackOverflow" },
+  { logoPath: "/images/Youtube.png", href: "/", name: "Youtube" },
+  { logoPath: "/images/Twitter.png", href: "/", name: "X" },
+  { logoPath: "/images/LinkedIN.png", href: "/", name: "LinkedIn" },
+];
+
+const footerLinks = {
+  products: [
+    {
+      label: "Database 8",
+      href: "/",
+    },
+    {
+      label: "Cloud",
+      href: "/",
+    },
+    {
+      label: "Graph",
+      href: "/",
+    },
+    {
+      label: "Vector 8",
+      href: "/",
+    },
+  ],
+  integrations: [
+    {
+      label: "Streaming",
+      href: "/",
+    },
+    {
+      label: "Query",
+      href: "/",
+    },
+    {
+      label: "AI/ML",
+      href: "/",
+    },
+  ],
+  solutions: [
+    {
+      label: "Artificial Intelligence",
+      href: "/",
+    },
+    {
+      label: "Fraud Prevention",
+      href: "/",
+    },
+    {
+      label: "Cost Efficency",
+      href: "/",
+    },
+    {
+      label: "User Profile Store ",
+      href: "/",
+    },
+    {
+      label: "Customer 360",
+      href: "/",
+    },
+    {
+      label: "in-memory caching ",
+      href: "/",
+    },
+    {
+      label: "Identify graph",
+      href: "/",
+    },
+  ],
+  company: [
+    {
+      label: "About",
+      href: "/",
+    },
+    {
+      label: "Partners",
+      href: "/",
+    },
+    {
+      label: "Careers",
+      href: "/",
+    },
+    {
+      label: "Leadership ",
+      href: "/",
+    },
+    {
+      label: "Newsroom",
+      href: "/",
+    },
+  ],
+};
+---
+
+<footer class="footer">
+  <Container>
+    <div class="logo-and-links">
+      <div class="logo">
+        <img src="/images/footer-logo.png" alt="Aerospike Logo" />
+      </div>
+      <div class="footer-links">
+        <div class="products-and-integrations">
+          <div>
+            <span class="section-title">Products</span>
+            <ul>
+              {
+                footerLinks.products.map(({ label, href }) => {
+                  return (
+                    <li>
+                      <a href={href}>{label}</a>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
+          <div>
+            <span class="section-title">Integrations</span>
+            <ul>
+              {
+                footerLinks.integrations.map(({ label, href }) => {
+                  return (
+                    <li>
+                      <a href={href}>{label}</a>
+                    </li>
+                  );
+                })
+              }
+            </ul>
+          </div>
+        </div>
+        <div>
+          <span class="section-title">Solutions</span>
+          <ul>
+            {
+              footerLinks.solutions.map(({ label, href }) => {
+                return (
+                  <li>
+                    <a href={href}>{label}</a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+        <div>
+          <span class="section-title">Company</span>
+          <ul>
+            {
+              footerLinks.company.map(({ label, href }) => {
+                return (
+                  <li>
+                    <a href={href}>{label}</a>
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+        <div>
+          <span class="section-title">Contact</span>
+          <ul>
+            <li>1-408-462-AERO (2378)</li>
+            <li>2440 W. El Camino Real Suite 100, Mountain View CA 94040</li>
+            <li><Button variant="outline">Contact Us</Button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM STUFF -->
+    <hr />
+    <div class="logos-and-credit">
+      <div class="logos">
+        {
+          socialLinks.map(({ logoPath, href, name }) => {
+            return (
+              <div class="social-logo">
+                <img src={logoPath} alt={name} />
+              </div>
+            );
+          })
+        }
+      </div>
+      <span>@2025 Aerospike, Inc - All rights reserved</span>
+    </div>
+    <p>
+      Disclaimer text: Sed ut perspiciatis unde omnis iste natus error sit
+      voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
+      ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+      dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+      aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+      ratione voluptatem sequi nesciunt.
+    </p>
+  </Container>
+</footer>
+
+<style>
+
+  }
+  .logo img {
+    width: 300px;
+  }
+  .logo-and-links {
+    display: flex;
+    gap: 5rem;
+  }
+  .products-and-integrations {
+    display: flex;
+    flex-direction: column;
+    gap: 52px;
+  }
+  .section-title {
+    display: block;
+    margin-bottom: 18px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  ul li {
+    color: var(--color-muted);
+    max-width: 150px;
+  }
+  ul li:hover {
+    color: var(--color-white);
+  }
+  .footer-links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 20px;
+    row-gap: 60px;
+  }
+
+  .item {
+    color: var(--color-muted);
+  }
+  .footer {
+    background: linear-gradient(
+      to bottom,
+      var(--color-black),
+      var(--color-secondary)
+    );
+    border-radius: 5rem 5rem 0 0;
+    color: var(--color-white);
+    padding: 160px 0 124px 0;
+  }
+
+  hr {
+    border-bottom: 1px;
+    border-color: var(--color-muted);
+    margin: 160px 0 24px 0;
+  }
+
+  p {
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .logos {
+    display: flex;
+    gap: 9px;
+  }
+
+  .social-logo img {
+    width: 26px;
+    height: 26px;
+  }
+  .logos-and-credit {
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-muted);
+    margin-bottom: 71px;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+    @media (max-width: 1024px) {
+    .logo-and-links {
+      flex-direction: column;
+      gap: 50px;
+    }
+    .footer-links {
+      flex-wrap: wrap;
+    }
+    .footer {
+      border-radius: 2rem 2rem 0 0;
+      font-size: 14px;
+    }
+
+  }
+</style>

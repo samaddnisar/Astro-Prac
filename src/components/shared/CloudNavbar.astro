@@ -1,0 +1,113 @@
+---
+import Container from "./Container.astro";
+
+const navLinks = [
+  { name: "Overview", href: "/" },
+  { name: "Benefits", href: "/" },
+  { name: "Developers", href: "/" },
+  { name: "Use Cases", href: "/" },
+  { name: "Pricing", href: "/" },
+  { name: "Join the preview", href: "/" },
+];
+---
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <div>
+      <p>Introducing <strong>Aerospike Cloud</strong></p>
+    </div>
+    <div class="menu-icon">
+      <img src="/images/menu.png" alt="Menu Icon" />
+    </div>
+
+    <ul class="nav-links">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="nav-link">
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<style>
+  strong {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+  /* Layout + Positioning */
+  .navbar {
+    position: sticky;
+    margin: 0 auto;
+    z-index: 100;
+    width: 100%;
+    padding: 31px 48px;
+    background: #051028;
+    border-radius: 99rem;
+    color: var(--color-white);
+    top: 60px;
+    margin-top: 60px;
+  }
+
+  /* Flex container */
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Links section */
+  .nav-links,
+  .nav-actions {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  /* Typography / Color */
+  .nav-link {
+    color: var(--color-white);
+    font-weight: 500;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-links,
+    .nav-actions {
+      gap: 16px;
+      display: none;
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+    }
+
+    .logo img {
+      height: 28px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .nav-container {
+      gap: 10px;
+    }
+  }
+</style>

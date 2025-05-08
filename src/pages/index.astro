@@ -1,10 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
+import Navbar from "../components/shared/Navbar.astro";
+import Hero from "../components/sections/Hero.astro";
+import StrongFoundations from "../components/sections/StrongFoundations.astro";
+import Footer from "../components/sections/Footer.astro";
+import WhyUs from "../components/sections/WhyUs.astro";
+import CloudNavbar from "../components/shared/CloudNavbar.astro";
+import Container from "../components/shared/Container.astro";
 ---
 
 <Layout>
   <Navbar />
   <Hero />
+  <main style="z-index: 5; position: relative;">
+    <Container>
+      <CloudNavbar />
+      <StrongFoundations />
+      <WhyUs />
+    </Container>
+    <Footer />
+  </main>
 </Layout>

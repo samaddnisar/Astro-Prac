@@ -1,0 +1,27 @@
+---
+import SectionName from "../shared/SectionName.astro";
+import SectionHeading from "../shared/SectionHeading.astro";
+---
+
+<section>
+  <div class="texts">
+    <SectionName>Why Aerospike Cloud</SectionName>
+    <SectionHeading
+      >The fully managed database that scales -without the hyperscale invoice</SectionHeading
+    >
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 60px 0;
+  }
+
+  .texts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    margin-top: 40px;
+  }
+</style>
